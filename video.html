@@ -1,21 +1,23 @@
-<html>
-  <head>
+<html ng-app="videoStore">
+<head>
     <title>Video stream sample</title>
-	<script src="index.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<style>
-		#videoPlayer {
-			width: 50%;
-			height: 50%;
-		}
-	</style>
-  </head>
-  <body>
+    <link data-require="bootstrap-css" data-semver="3.1.1" rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js"
+            data-semver="1.2.15"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="index.js"></script>
+
+</head>
+<body ng-controller="storeController as store">
+<div id="showVideo" ng-repeat="product in store.products">
+    <p>{{product.name}}</p>
     <video id="videoPlayer" controls>
-      <source src="http://localhost:3000/video" type="video/mp4">
+        <source src="http://localhost:3000/video" type="video/mp4">
     </video>
-	<div>
-		<button id="toggleButton">Start/Stop</button>
-	</div>
-  </body>
+</div>
+<div>
+    <button id="toggleButton">Start/Stop</button>
+</div>
+</body>
 </html>
